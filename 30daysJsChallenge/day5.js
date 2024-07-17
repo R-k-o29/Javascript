@@ -90,8 +90,6 @@ function applyFunctions(func1, func2, value) {
     const finalResult = func2(firstResult);
     return finalResult;
 }
-
-// Example functions
 function double(x) {
     return x * 2;
 }
