@@ -94,3 +94,26 @@ fetch("https://jsonplaceholder.typicode.com/posts")
   .then((data) => console.log(data))
   .catch((error) => console.error("Error:", error));
 
+//TASK7
+async function fetchData() {
+    let response = await fetch("https://jsonplaceholder.typicode.com/posts");
+    let data = await response.json();
+    console.log(data);
+}
+fetchData();
+
+//TASK8
+const promise1 = Promise.resolve(3);
+const promise2 = 42;
+const promise3 = new Promise((resolve, reject) => {
+  setTimeout(resolve, 100, "foo");
+});
+
+Promise.all([promise1, promise2, promise3]).then((values) => {
+  console.log(values);
+});
+
+//TASK9
+Promise.race([promise1, promise2]).then((value) => {
+  console.log(value);
+});
