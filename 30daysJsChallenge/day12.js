@@ -72,3 +72,60 @@ const input = (str)=>{
     }
 
 //TASK 6 
+const generate=()=>{
+    return new Promise((resolve,reject)=>{
+        let x=Math.random();
+        if(x>0.5){
+            resolve("Promise resolved")
+        }else{
+            reject("Rejected")
+        }
+    })
+}
+
+generate().then(message=>console.log(message)).catch(error=>console.log("Error:",error));
+
+//TASK 7
+const randomPromise=()=>{
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            reject("Rejected");
+        },2000)
+    })
+}
+
+async function handleRandom(){
+    try{
+        const result=await randomPromise();
+        console.log(result);
+    }catch(e){
+        console.log(e);
+    }
+}
+handleRandom();
+
+//TASK 8
+fetch('invalid.url').then(respose =>{
+    if(!respose.ok){
+        throw new Error("Invalid response");
+    }
+    return respose.json();
+}).then(data=>console.log(data)).catch(e=>console.error("Error :",e.message));
+
+//TASK 9
+async function random(){
+    try{
+        let respose= await fetch('invalid.url');
+        if(!respose.ok){
+            throw new Error('Invalid response generated');
+        }
+        let data = await respose.json();
+        console.log(data);
+    }catch(e){
+        console.log(e.message);
+    }
+}
+random();
+
+
+
