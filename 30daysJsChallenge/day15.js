@@ -85,4 +85,41 @@ console.log(coll.display());
 const arr=logIndex();
 arr[3]();
 
-//TASK6
+//TASK7
+function fib() {
+  const mem = {};
+  return function fibonacci(num) {
+    if (num in mem) {
+      return mem[num];
+    }
+
+    if (num <= 1) return num;
+    mem[num] = fibonacci(num - 2) + fibonacci(num - 1);
+    return mem[num];
+  };
+}
+
+const fibonacci = fib();
+console.log(`Fibonacci of 9: ${fibonacci(9)}`);
+console.log(`Fibonacci of 8: ${fibonacci(8)}`);
+
+//TASK8
+function factorial() {
+  const cache = {};
+
+  return function fact(num) {
+    if (num in cache) return cache[num];
+
+    if (num <= 1) {
+      cache[num] = num;
+      return num;
+    }
+
+    const result = num * fact(num - 1);
+    cache[num] = result;
+    return result;
+  };
+}
+const fact = factorial();
+console.log(`Factorial of 5 is ${fact(5)}`);
+console.groupEnd();
