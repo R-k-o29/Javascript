@@ -69,3 +69,40 @@ const isReverse=(str)=>{
 
 console.log(isReverse("aba"));
 
+//TASK7
+const binarySearch=(arr,target,s=0,e=arr.length)=>{
+    if(s>e){
+        return -1;
+    }
+    while(s<=e){
+        let mid = s + (e - s) / 2;
+        if(arr[mid]===target){
+            return mid;
+        }else if(target<arr[mid]){
+            binarySearch(arr,target,0,mid-1);
+        }else{
+            binarySearch(arr, target,mid+1,e);
+        }
+    }
+    return -1;
+}
+
+let arr=[1,2,3,4,5];
+console.log(binarySearch(arr,4));
+
+//TASK8
+const occurances=(arr,target,index,count=0)=>{
+    if(index>arr.length){
+        return count;
+    }
+    if(arr[index]===target){
+        count++;
+    }
+    return occurances(arr,target,index+1,count);
+}
+
+arr=[1,2,3,4,5,6,6,4,2,2,2,];
+console.log(occurances(arr,4,0));
+
+//TASK9
+
