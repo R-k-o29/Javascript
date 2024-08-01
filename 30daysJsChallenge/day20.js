@@ -40,3 +40,17 @@
   </script>
 </body>
 </html>
+
+
+// TASK4
+localStorage.setItem("myString","My name is rohit");
+console.log(localStorage.getItem("myString"));
+localStorage.removeItem("myString");
+console.log(localStorage.getItem("myString"));
+
+//TASK6
+const obj={name:"Rohit",age:12,gender:"Male"};
+sessionStorage.setItem("NewObj",JSON.stringify(obj));
+console.log(JSON.parse(sessionStorage.getItem("NewObj")));
+
+
