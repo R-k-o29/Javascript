@@ -201,3 +201,48 @@ console.log("Dequeued:", queue.dequeue()); // Outputs: Dequeued: 1
 queue.displayQueue(); // Outputs: [2,3]
 console.log("Front element:", queue.front()); // Outputs: Front element: 2
 
+// --------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//TASK6
+class Queue {
+  constructor() {
+    this.items = [];
+  }
+
+  enqueue(element) {
+    this.items.push(element);
+  }
+
+  dequeue() {
+    if (this.isEmpty()) {
+      return "Queue is empty";
+    }
+    return this.items.shift();
+  }
+
+  front() {
+    if (this.isEmpty()) {
+      return "Queue is empty";
+    }
+    return this.items[0];
+  }
+
+  isEmpty() {
+    return this.items.length === 0;
+  }
+
+  displayQueue() {
+    console.log(this.items);
+  }
+}
+
+const queue = new Queue();
+queue.enqueue("Print job 1");
+queue.enqueue("Print job 2");
+queue.enqueue("Print job 3");
+queue.displayQueue(); // Outputs: ['Print job 1', 'Print job 2', 'Print job 3']
+console.log("Dequeued:", queue.dequeue()); // Outputs: Dequeued: Print job 1
+queue.displayQueue(); // Outputs: ['Print job 2', 'Print job 3']
+console.log("Front element:", queue.front()); // Outputs: Front element: Print job 2
+
+
+
