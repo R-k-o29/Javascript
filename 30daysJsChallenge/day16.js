@@ -105,4 +105,65 @@ arr=[1,2,3,4,5,6,6,4,2,2,2,];
 console.log(occurances(arr,4,0));
 
 //TASK9
+class TreeNode {
+    constructor(value) {
+        this.value = value;
+        this.left = null;
+        this.right = null;
+    }
+}
 
+const inOrderTraversal = (root) => {
+    if (root === null) {
+        return;
+    }
+    inOrderTraversal(root.left);
+    console.log(root.value);
+    inOrderTraversal(root.right);
+}
+
+let root = new TreeNode(1);
+root.left = new TreeNode(2);
+root.right = new TreeNode(3);
+root.left.left = new TreeNode(4);
+root.left.right = new TreeNode(5);
+
+console.log("In-order Traversal:");
+inOrderTraversal(root);
+
+//TASK10
+class TreeNode {
+    constructor(value) {
+        this.value = value;
+        this.left = null;
+        this.right = null;
+    }
+}
+
+const inOrderTraversal = (root) => {
+    if (root === null) {
+        return;
+    }
+    inOrderTraversal(root.left);
+    console.log(root.value);
+    inOrderTraversal(root.right);
+}
+
+const calculateDepth = (root) => {
+  if (root === null) {
+    return 0;
+  }
+  let leftDepth = calculateDepth(root.left);
+  let rightDepth = calculateDepth(root.right);
+  return Math.max(leftDepth, rightDepth) + 1;
+};
+
+let root = new TreeNode(1);
+root.left = new TreeNode(2);
+root.right = new TreeNode(3);
+root.left.left = new TreeNode(4);
+root.left.right = new TreeNode(5);
+
+console.log("In-order Traversal:");
+inOrderTraversal(root);
+console.log("Depth of the tree:", calculateDepth(root));
