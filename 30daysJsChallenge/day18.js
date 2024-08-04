@@ -48,4 +48,35 @@ selectionSort(arr)
 console.log(arr);
 // -------------------------------------------------------------------------------------------------------------------------------------------------
 //TASK3
+const quickSort=(arr,low,high)=>{
+    if(low>=high){
+        return;
+    }
+    let s=low;
+    let e=high;
+    let mid=Math.floor(s+(e-s)/2);
+    while(s<=e){
+        while(arr[s]<arr[mid]){
+            s++;
+        }
+        while(arr[e]>arr[mid]){
+            e--;
+        }
+        if(s<=e){
+            let temp=arr[s];
+            arr[s]=arr[e];
+            arr[e]=temp;
+            s++;
+            e--;
+        }
+    }
+    quickSort(arr,low,e);
+    quickSort(arr,s,high);
+}
+
+let arr=[45,4,3,2,56,5];
+quickSort(arr,0,arr.length-1);
+console.log(arr);
+// -------------------------------------------------------------------------------------------------------------------------------------------------
+//TASK4
 
