@@ -103,11 +103,37 @@ const binarySearch=(arr,target)=>{
             s=mid+1
         }
     }
-
-
 }
-
 const arr=[1,2,4,5,6,7,3]
 console.log(binarySearch(arr,7));
 // -------------------------------------------------------------------------------------------------------------------------------------------------
 //TASK6
+const countChar = (str) => {
+  const charCount = {};
+  for (let char of str) {
+    charCount[char] = charCount[char] + 1 || 1;
+  }
+  console.log(charCount);
+};
+
+countChar("hello world");
+// -------------------------------------------------------------------------------------------------------------------------------------------------
+//TASK7
+const countChar=(str)=>{
+    let count=1;
+    let max=1;
+    for (let i = 0; i < str.length-1; i++) {
+        if(str.charAt(i)===str.charAt(i+1)){
+            count+=1;
+        }else{
+            count=1;
+        }
+        if(count>max){max=count}
+    }
+    return max;
+}
+
+const str="hellllo peterrrrrr";
+console.log(countChar(str));
+// -------------------------------------------------------------------------------------------------------------------------------------------------
+//TASK8
