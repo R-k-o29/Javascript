@@ -79,4 +79,35 @@ quickSort(arr,0,arr.length-1);
 console.log(arr);
 // -------------------------------------------------------------------------------------------------------------------------------------------------
 //TASK4
+const linearSearch=(arr,target)=>{
+    for (let i = 0; i < arr.length; i++) {
+        if(arr[i]==target)return i;
+    }
+    return -1;
+}
 
+const arr=[1,2,4,5,6,7,3]
+console.log(linearSearch(arr,4));
+// -------------------------------------------------------------------------------------------------------------------------------------------------
+//TASK5
+const binarySearch=(arr,target)=>{
+    let s=0;
+    let e=arr.length-1;
+
+    while(s<=e){
+        let mid = s + (e - s) / 2;
+        if(arr[mid]==target)return mid;
+        else if(target<arr[mid]){
+            e=mid-1;
+        }else{
+            s=mid+1
+        }
+    }
+
+
+}
+
+const arr=[1,2,4,5,6,7,3]
+console.log(binarySearch(arr,7));
+// -------------------------------------------------------------------------------------------------------------------------------------------------
+//TASK6
